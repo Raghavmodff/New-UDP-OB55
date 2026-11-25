@@ -51,7 +51,7 @@ DASHBOARD_HTML = r"""
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
-<title>Toxicffleaksss — Free Fire Level Pro</title>
+<title>TFX FF LEVEL — Free Fire Level Pro</title>
 <link rel="icon" href="/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,19 +238,12 @@ background-size:cover,100% 100%,cover;background-position:center;background-repe
 .modal{width:min(420px,100%);max-height:100%;overflow-y:auto;background:var(--s1);border:1px solid var(--border2);border-radius:24px;padding:22px}
 .modal h2{font-size:19px;font-weight:800;margin-bottom:4px;color:var(--white);letter-spacing:.02em}
 .modal p{font-size:12px;color:var(--text2);margin-bottom:12px}
-.tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:3px;background:#000;border:1px solid var(--border);border-radius:14px;margin-bottom:12px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:3px;background:#000;border:1px solid var(--border);border-radius:14px;margin-bottom:12px}
 .tab{height:34px;border:0;border-radius:11px;background:transparent;color:var(--text2);font-size:12px;font-weight:600;transition:background .2s var(--ease)}
 .tab.active{background:var(--s3);color:var(--white)}
 .field{margin-bottom:11px}.field label{display:block;font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;font-weight:700}
 .field .inp{width:100%;height:42px}
 .pane{display:none}.pane.active{display:block}
-.drop-zone{border:1.5px dashed var(--border2);border-radius:14px;padding:18px 12px;text-align:center;background:rgba(255,255,255,.02);cursor:pointer;transition:border-color .2s,background .2s;margin-bottom:10px}
-.drop-zone:hover,.drop-zone.dragover{border-color:var(--green);background:rgba(30,215,96,.06)}
-.drop-zone p{margin:0;font-size:12px;color:var(--text2)}
-.drop-zone b{color:var(--white);font-size:13px;display:block;margin-bottom:4px}
-.bulk-ta{width:100%;min-height:90px;background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:9px 11px;color:var(--text);font-family:var(--mono);font-size:11.5px;resize:vertical;outline:0}
-.bulk-ta:focus{border-color:#3a3a42}
-
 .modal-foot{display:flex;gap:8px;margin-top:6px}.modal-foot button{flex:1;height:42px}
 .toasts{position:fixed;right:18px;bottom:18px;z-index:300;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast{max-width:340px;padding:11px 15px;font-size:12px;font-weight:500;color:var(--white);background:var(--s2);border:1px solid var(--border2);border-left:3px solid var(--green);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.7)}
@@ -295,7 +288,7 @@ background-size:cover,100% 100%,cover;background-position:center;background-repe
 <header class="header">
   <div class="brand">
     <svg class="flame" viewBox="0 0 24 24" aria-hidden="true"><polygon points="13.5,1.5 4,13.6 10.6,13.6 9,22.5 20,9.6 13.2,9.6" fill="#ef2f2f" stroke="#ff7060" stroke-width=".7" stroke-linejoin="round"/></svg>
-    <div><div class="brand-name">Toxicffleaksss<span class="brand-sep brand-tail">—</span><span class="brand-tail">Free Fire Level Pro</span></div><div class="brand-sub">Bot Dashboard · Real-Time EXP Tracker</div></div>
+    <div><div class="brand-name">TFX FF LEVEL<span class="brand-sep brand-tail">—</span><span class="brand-tail">Free Fire Level Pro</span></div><div class="brand-sub">Bot Dashboard · Real-Time EXP Tracker</div></div>
   </div>
   <div class="header-right">
     <span class="rolechip" id="roleChip"></span>
@@ -398,21 +391,13 @@ background-size:cover,100% 100%,cover;background-position:center;background-repe
 <div class="overlay" id="overlay">
   <div class="modal" role="dialog" aria-modal="true">
     <h2>Add Account</h2><p>Connect a Free Fire account. It is validated before the bot starts.</p>
-    <div class="tabs"><button class="tab active" data-tab="guest" type="button">Guest</button><button class="tab" data-tab="token" type="button">Token</button><button class="tab" data-tab="bulk" type="button">Bulk File</button></div>
+    <div class="tabs"><button class="tab active" data-tab="guest" type="button">Guest Account</button><button class="tab" data-tab="token" type="button">Access Token</button></div>
     <div class="pane active" data-pane="guest">
       <div class="field"><label for="fUid">UID</label><input class="inp" id="fUid" inputmode="numeric" autocomplete="off" placeholder="Player UID"></div>
       <div class="field"><label for="fPwd">Password</label><input class="inp" id="fPwd" type="password" autocomplete="off" placeholder="Account password"></div>
     </div>
     <div class="pane" data-pane="token">
       <div class="field"><label for="fTok">Access Token</label><input class="inp" id="fTok" autocomplete="off" placeholder="Paste access token"></div>
-    </div>
-    <div class="pane" data-pane="bulk">
-      <div class="drop-zone" id="dropZone">
-        <b>📁 Drag &amp; Drop .txt / .json file here</b>
-        <p>or click to browse (supports UID:PASSWORD lines or JSON array)</p>
-        <input type="file" id="fBulkFile" accept=".txt,.json,.csv" hidden>
-      </div>
-      <div class="field"><label for="fBulkTxt">Or Paste Accounts (UID:PASSWORD per line / JSON)</label><textarea class="bulk-ta" id="fBulkTxt" placeholder="1234567890:PASSWORD123&#10;9876543210:PASSWORD456&#10;or [{&quot;uid&quot;:&quot;...&quot;,&quot;password&quot;:&quot;...&quot;}]"></textarea></div>
     </div>
     <div class="field"><label for="fReg">Server Region</label>
       <select class="inp" id="fReg"><option value="BD">Bangladesh</option><option value="IND">India</option><option value="SG">Singapore</option><option value="ID">Indonesia</option><option value="BR">Brazil</option><option value="US">United States</option></select></div>
@@ -809,8 +794,8 @@ $('arBreakInp').addEventListener('keydown',e=>{if(e.key==='Enter'&&$('autoRestar
 $('search').addEventListener('input',()=>{if(lastData)render(lastData)});
 $('ctrlToggle').addEventListener('click',()=>{const o=$('ctrlStack').classList.toggle('open');$('ctrlToggle').textContent='⚙ Controls '+(o?'▴':'▾')});
 
-function openAdd(){$('overlay').classList.add('open');setTimeout(()=>{(tab==='guest'?$('fUid'):tab==='token'?$('fTok'):$('fBulkTxt')).focus()},50)}
-function closeAdd(){$('overlay').classList.remove('open');['fUid','fPwd','fTok','fBulkTxt'].forEach(i=>{if($(i))$(i).value=''});if($('fBulkFile'))$('fBulkFile').value=''}
+function openAdd(){$('overlay').classList.add('open');setTimeout(()=>{(tab==='guest'?$('fUid'):$('fTok')).focus()},50)}
+function closeAdd(){$('overlay').classList.remove('open');['fUid','fPwd','fTok'].forEach(i=>$(i).value='')}
 $('openAdd').addEventListener('click',openAdd);
 (function(){const mq=matchMedia('(min-width:901px)');const place=()=>{const l=$('logSec');if(mq.matches)$('ctrlStack').after(l);else document.querySelector('.main').appendChild(l)};place();mq.addEventListener('change',place)})();$('addCancel').addEventListener('click',closeAdd);
 $('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))closeAdd()});
@@ -820,60 +805,8 @@ document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));
   document.querySelectorAll('.pane').forEach(p=>p.classList.toggle('active',p.dataset.pane===tab));
 }));
-(function(){
-  const dz=$('dropZone'),fi=$('fBulkFile'),ta=$('fBulkTxt');
-  if(!dz||!fi||!ta)return;
-  const readF=f=>{if(!f)return;const r=new FileReader();r.onload=ev=>{ta.value=String(ev.target.result||'');toast('Loaded '+f.name)};r.readAsText(f)};
-  dz.addEventListener('click',()=>fi.click());
-  fi.addEventListener('change',()=>readF(fi.files[0]));
-  ['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('dragover')}));
-  ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('dragover')}));
-  dz.addEventListener('drop',e=>{if(e.dataTransfer&&e.dataTransfer.files.length)readF(e.dataTransfer.files[0])});
-})();
-function parseBulkInput(raw,region){
-  const s=raw.trim();if(!s)return[];
-  if(s.startsWith('[')||s.startsWith('{')){
-    const parsed=JSON.parse(s);
-    const arr=Array.isArray(parsed)?parsed:[parsed];
-    return arr.map(item=>{
-      if(typeof item==='string'){const [u,p]=item.split(/[:|,\s]+/);return u&&p?{uid:u.trim(),password:p.trim(),region}:null}
-      if(item&&typeof item==='object'){
-        if(item.token)return{token:String(item.token).trim(),region:item.region||region};
-        if(item.uid&&item.password)return{uid:String(item.uid).trim(),password:String(item.password).trim(),region:item.region||region};
-      }
-      return null;
-    }).filter(Boolean);
-  }
-  const out=[];
-  for(const line of s.split(/
-?
-/)){
-    const ln=line.trim();if(!ln||ln.startsWith('#'))continue;
-    const parts=ln.split(/[:|,	]+/);
-    if(parts.length>=2&&parts[0].trim()&&parts[1].trim()){
-      out.push({uid:parts[0].trim(),password:parts[1].trim(),region});
-    }else if(ln.length>20&&!ln.includes(':')){
-      out.push({token:ln,region});
-    }
-  }
-  return out;
-}
 $('addSubmit').addEventListener('click',async function(){
-  const region=$('fReg').value;
-  if(tab==='bulk'){
-    let items=[];
-    try{items=parseBulkInput($('fBulkTxt').value,region)}catch(e){toast('Invalid JSON format: '+e.message,true);return}
-    if(!items.length){toast('ফাইল আপলোড করুন বা UID:PASSWORD লিখুন',true);return}
-    this.disabled=true;this.textContent='Uploading ('+items.length+')…';
-    try{
-      const res=await api('/api/accounts/bulk-add',{accounts:items,region});
-      toast('✅ '+(res.added||items.length)+'টি অ্যাকাউন্ট যোগ হয়েছে!');
-      closeAdd();await fetchStats();
-    }catch(e){toast(e.message,true)}
-    this.disabled=false;this.textContent='Validate & Start';
-    return;
-  }
-  const p={type:tab,region};
+  const region=$('fReg').value,p={type:tab,region};
   if(tab==='guest'){p.uid=$('fUid').value.trim();p.password=$('fPwd').value.trim();if(!p.uid||!p.password){toast('UID এবং Password দিন',true);return}}
   else{p.token=$('fTok').value.trim();if(!p.token){toast('Access token দিন',true);return}}
   this.disabled=true;this.textContent='Validating…';
@@ -901,18 +834,18 @@ window.addEventListener('online',()=>{_fails=0;fetchStats()});
 
 
 # ==================== LOGIN / ACCESS KEY ====================
-# Dashboard-e dhukte Access Key lagbe. Default key: TOXICFF
+# Dashboard-e dhukte Access Key lagbe. Default key: TFXBRO
 # Railway-te alada key chaile Variables-e DASHBOARD_KEY set korun (code change lagbe na).
 import hmac as _hmac
 import hashlib as _hashlib
 import base64 as _b64
 
 # ✅ ROLES: Admin = সব কাজ | User = শুধু দেখা + Add Account
-#   Admin key  → ADMIN_KEY (না থাকলে DASHBOARD_KEY, ডিফল্ট TOXICFF)
+#   Admin key  → ADMIN_KEY (না থাকলে DASHBOARD_KEY, ডিফল্ট TFXBRO)
 #   User key   → USER_KEY  (ডিফল্ট A1TFX)
-DASHBOARD_KEY = (os.environ.get("ADMIN_KEY") or os.environ.get("DASHBOARD_KEY") or "TOXICFF").strip()
+DASHBOARD_KEY = (os.environ.get("ADMIN_KEY") or os.environ.get("DASHBOARD_KEY") or "TFXBRO").strip()
 USER_KEY = (os.environ.get("USER_KEY") or "A1TFX").strip()
-USER_ALLOWED_PATHS = {"/", "/api/stats", "/api/account/add", "/api/accounts/bulk-add", "/api/logout"}
+USER_ALLOWED_PATHS = {"/", "/api/stats", "/api/account/add", "/api/logout"}
 SESSION_COOKIE = "tfx_session"
 SESSION_DAYS = 30
 _SESSION_SECRET = _hashlib.sha256(("tfx-dashboard|" + DASHBOARD_KEY + "|" + USER_KEY).encode("utf-8")).digest()
@@ -929,7 +862,7 @@ LOGIN_HTML = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0a0d12">
-<title>Toxicffleaksss — Access</title>
+<title>TFX LEVEL UP — Access</title>
 <link rel="icon" href="/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1080,7 +1013,7 @@ opacity:0;transition:opacity .3s 1.1s ease}
     <div class="logo-glow"></div>
     <div class="logo"><img src="/logo.jpg" alt="TFX" width="140" height="140"></div>
 
-    <h1>TOXICFFLEAKSSS</h1>
+    <h1>TFX LEVEL UP</h1>
     <div class="sub">Free Fire · Bot Dashboard</div>
     <div class="lock-line">🔐 Enter Access Key</div>
 
@@ -2275,120 +2208,6 @@ async def handle_add_account(request: web.Request) -> web.Response:
         return web.json_response({"status": "error", "error": str(e)})
 
 
-
-
-async def handle_bulk_add_accounts(request: web.Request) -> web.Response:
-    """Bulk file / text থেকে একসাথে অনেকগুলো UID:PASSWORD বা Token যোগ করা"""
-    try:
-        data = await request.json()
-        items = data.get("accounts", [])
-        default_region = str(data.get("region", "BD")).strip() or "BD"
-        if not isinstance(items, list) or not items:
-            return web.json_response({"status": "error", "error": "No valid accounts provided"}, status=400)
-
-        role = request.get("role", "admin")
-        new_owner_cookie = None
-        owner = None
-        if role == "user":
-            owner = _owner_id(request)
-            if not owner:
-                owner = _secrets.token_hex(6)
-                new_owner_cookie = _owner_cookie_value(owner)
-
-        accounts_file = ACCOUNTS_FILE_PATH
-        existing = []
-        if os.path.exists(accounts_file):
-            try:
-                with open(accounts_file, "r", encoding="utf-8") as f:
-                    existing = json.load(f)
-                if not isinstance(existing, list):
-                    existing = []
-            except Exception:
-                existing = []
-
-        added_items = []
-        skipped = 0
-        for item in items:
-            if not isinstance(item, dict):
-                continue
-            region = str(item.get("region") or default_region).strip() or "BD"
-            if item.get("uid") and item.get("password"):
-                uid = str(item["uid"]).strip()
-                pwd = str(item["password"]).strip()
-                if not uid or not pwd:
-                    continue
-                owner_key = uid
-                if role == "user" and (any(str(acc.get("uid")) == uid for acc in existing) or uid in bot_state.accounts) \
-                        and bot_state.account_owner.get(uid) != owner:
-                    skipped += 1
-                    continue
-                if _check_user_limit(role, owner, owner_key, existing):
-                    skipped += 1
-                    continue
-                existing = [acc for acc in existing if str(acc.get("uid")) != uid]
-                existing.append({"uid": uid, "password": pwd})
-                bot_state.deleted_uids.discard(uid)
-                if role == "user" and owner:
-                    bot_state.account_owner[owner_key] = owner
-                elif role == "admin":
-                    bot_state.account_owner.pop(owner_key, None)
-                added_items.append({"type": "guest", "uid": uid, "password": pwd, "region": region})
-            elif item.get("token"):
-                token = str(item["token"]).strip()
-                if not token:
-                    continue
-                owner_key = f"tok_{token[:10]}"
-                if role == "user" and (any(acc.get("token") == token for acc in existing) or owner_key in bot_state.accounts) \
-                        and bot_state.account_owner.get(owner_key) != owner:
-                    skipped += 1
-                    continue
-                if _check_user_limit(role, owner, owner_key, existing):
-                    skipped += 1
-                    continue
-                existing = [acc for acc in existing if acc.get("token") != token]
-                existing.append({"token": token})
-                bot_state.deleted_uids.discard(token[:10])
-                bot_state.deleted_uids.discard(owner_key)
-                if role == "user" and owner:
-                    bot_state.account_owner[owner_key] = owner
-                elif role == "admin":
-                    bot_state.account_owner.pop(owner_key, None)
-                added_items.append({"type": "token", "token": token, "region": region})
-
-        if not added_items:
-            return web.json_response({"status": "error", "error": "কোনো নতুন অ্যাকাউন্ট যোগ করা যায়নি (duplicate বা limit)"}, status=400)
-
-        tmp_file = accounts_file + ".tmp"
-        with open(tmp_file, "w", encoding="utf-8") as f:
-            json.dump(existing, f, indent=2, ensure_ascii=False)
-        os.replace(tmp_file, accounts_file)
-
-        bot_state._save_deleted_uids()
-        bot_state._save_owners()
-        bot_state.preload_pending()
-        _STATS_CACHE.clear()
-
-        bot_state.log(f"[BULK ADD] {len(added_items)}টি অ্যাকাউন্ট একসাথে যোগ হয়েছে (skipped: {skipped})", "success")
-
-        if "on_account_added" in bot_state.refresh_callbacks:
-            async def _launch_bulk(batch):
-                for entry in batch:
-                    try:
-                        await bot_state.refresh_callbacks["on_account_added"](entry)
-                        await asyncio.sleep(0.15)
-                    except Exception:
-                        pass
-            asyncio.create_task(_launch_bulk(added_items))
-
-        resp = web.json_response({"status": "ok", "added": len(added_items), "skipped": skipped})
-        if new_owner_cookie:
-            resp.set_cookie(OWNER_COOKIE, new_owner_cookie, max_age=365 * 86400,
-                            httponly=True, samesite="Lax", secure=_is_https(request), path="/")
-        return resp
-    except Exception as e:
-        return web.json_response({"status": "error", "error": str(e)}, status=500)
-
-
 async def handle_delete_account(request: web.Request) -> web.Response:
     try:
         data = await request.json()
@@ -2877,7 +2696,6 @@ async def start_web_dashboard(host: str = "0.0.0.0", port: int = 5000):
     app.router.add_get("/", handle_index)
     app.router.add_get("/api/stats", handle_get_stats)
     app.router.add_post("/api/account/add", handle_add_account)
-    app.router.add_post("/api/accounts/bulk-add", handle_bulk_add_accounts)
     app.router.add_post("/api/account/delete", handle_delete_account)
     app.router.add_post("/api/account/refresh", handle_refresh_account)
     app.router.add_post("/api/accounts/reload", handle_reload_accounts)
